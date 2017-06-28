@@ -11,7 +11,9 @@
     "unit": "node_modules/.bin/cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node app/vuepack/test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src app/vuepack/test/unit/specs app/vuepack/test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src app/vuepack/test/unit/specs app/vuepack/test/e2e/specs",
+    "zat": "cd app && zat server",
+    "server": "npm run zat & npm run build"
   },
   "dependencies": {
     "vue": "^2.2.6"
