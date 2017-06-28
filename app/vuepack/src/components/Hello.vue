@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     msg: function () {
-      return 'Hello ' + this.userName + ', welcome to Zendesk Vue.js App.'
+      return 'Hello ' + this.userName + ', welcome to Zendesk Vue App.'
     }
   },
   methods: {

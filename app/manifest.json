@@ -1,0 +1,18 @@
+{
+  "name": "Vue js skeleton App",
+  "author": {
+    "name": "Shakti Rajpurohit",
+    "email": "services@zendesk.com",
+    "url": "https://www.zendesk.com/customer-experience/"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar":  "assets/index.html"
+    }
+  },
+  "version": "1.0",
+  "frameworkVersion": "2.0",
+  "parameters": []
+}
