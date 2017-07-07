@@ -1,5 +1,5 @@
 # Apps Webpack Boilerplate
-Build Zendesk Apps with Webpack.
+> Build Zendesk Apps with Webpack.
 
 ## Source files
 1. The source files live on /app/vuepack/src
