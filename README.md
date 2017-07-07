@@ -2,8 +2,8 @@
 > Build Zendesk Apps with Webpack.
 
 ## Source files
-1. The source files live on /app/vuepack/src
-2. The compiled code is in /app/assets/static
+1. [Source Code](/app/vuepack/src)
+2. [Compiled Code](/app/assets/static)
 
 Compiled code is beautified. Custom and vendor code are in separate compiled files.
 
@@ -13,4 +13,4 @@ Compiled code is beautified. Custom and vendor code are in separate compiled fil
 3. npm run zat - To start the local server that can be tested in the Zendesk instance
 
 ## Config
-All the config files live under /app/vuepack/build/
+[Config Files](/app/vuepack/build/)
