@@ -122,7 +122,7 @@ function(module, exports) {
             var _c = _vm._self._c || _h;
             return _c("div", {
                 staticClass: "hello"
-            }, [ _c("p", [ _vm._v(_vm._s(_vm.msg)) ]) ]);
+            }, [ _c("p", [ _vm._v(_vm._s(_vm.msg)) ]), _vm._v(" "), _c("hello-again") ], 1);
         },
         staticRenderFns: []
     };

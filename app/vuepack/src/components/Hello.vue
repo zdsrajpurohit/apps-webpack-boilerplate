@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <p>{{ msg }}</p>
+    <hello-again></hello-again>
   </div>
 </template>
 
