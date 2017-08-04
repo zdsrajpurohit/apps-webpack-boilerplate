@@ -3,10 +3,10 @@ webpackJsonp([ 0 ], [ /* 0 */
 /***/
 function(module, exports, __webpack_require__) {
     /* styles */
-    __webpack_require__(6);
+    __webpack_require__(7);
     var Component = __webpack_require__(0)(/* script */
     __webpack_require__(4), /* template */
-    __webpack_require__(9), /* scopeId */
+    __webpack_require__(12), /* scopeId */
     null, /* cssModules */
     null);
     module.exports = Component.exports;
@@ -39,7 +39,7 @@ function(module, __webpack_exports__, __webpack_require__) {
         value: true
     });
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__components_Hello__ = __webpack_require__(8);
+    var __WEBPACK_IMPORTED_MODULE_0__components_Hello__ = __webpack_require__(10);
     /* harmony import */
     var __WEBPACK_IMPORTED_MODULE_0__components_Hello___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Hello__);
     /* harmony default export */
@@ -57,7 +57,7 @@ function(module, __webpack_exports__, __webpack_require__) {
         value: true
     });
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__HelloAgain__ = __webpack_require__(19);
+    var __WEBPACK_IMPORTED_MODULE_0__HelloAgain__ = __webpack_require__(11);
     /* harmony import */
     var __WEBPACK_IMPORTED_MODULE_0__HelloAgain___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__HelloAgain__);
     /* harmony default export */
@@ -90,20 +90,48 @@ function(module, __webpack_exports__, __webpack_require__) {
     };
 }, /* 6 */
 /***/
-function(module, exports) {}, /* 7 */
+function(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+    Object.defineProperty(__webpack_exports__, "__esModule", {
+        value: true
+    });
+    /* harmony default export */
+    __webpack_exports__["default"] = {
+        data: function data() {
+            return {
+                msg: "hello again"
+            };
+        }
+    };
+}, /* 7 */
 /***/
 function(module, exports) {}, /* 8 */
 /***/
+function(module, exports) {}, /* 9 */
+/***/
+function(module, exports) {}, /* 10 */
+/***/
 function(module, exports, __webpack_require__) {
     /* styles */
-    __webpack_require__(7);
+    __webpack_require__(8);
     var Component = __webpack_require__(0)(/* script */
     __webpack_require__(5), /* template */
-    __webpack_require__(10), /* scopeId */
+    __webpack_require__(13), /* scopeId */
     "data-v-71fc82d6", /* cssModules */
     null);
     module.exports = Component.exports;
-}, /* 9 */
+}, /* 11 */
+/***/
+function(module, exports, __webpack_require__) {
+    /* styles */
+    __webpack_require__(9);
+    var Component = __webpack_require__(0)(/* script */
+    __webpack_require__(6), /* template */
+    __webpack_require__(14), /* scopeId */
+    "data-v-7e853ffb", /* cssModules */
+    null);
+    module.exports = Component.exports;
+}, /* 12 */
 /***/
 function(module, exports) {
     module.exports = {
@@ -119,7 +147,7 @@ function(module, exports) {
         },
         staticRenderFns: []
     };
-}, /* 10 */
+}, /* 13 */
 /***/
 function(module, exports) {
     module.exports = {
@@ -133,41 +161,7 @@ function(module, exports) {
         },
         staticRenderFns: []
     };
-}, /* 11 */
-, /* 12 */
-, /* 13 */
-, /* 14 */
-, /* 15 */
-, /* 16 */
-, /* 17 */
-/***/
-function(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-    Object.defineProperty(__webpack_exports__, "__esModule", {
-        value: true
-    });
-    /* harmony default export */
-    __webpack_exports__["default"] = {
-        data: function data() {
-            return {
-                msg: "hello again"
-            };
-        }
-    };
-}, /* 18 */
-/***/
-function(module, exports) {}, /* 19 */
-/***/
-function(module, exports, __webpack_require__) {
-    /* styles */
-    __webpack_require__(18);
-    var Component = __webpack_require__(0)(/* script */
-    __webpack_require__(17), /* template */
-    __webpack_require__(20), /* scopeId */
-    "data-v-7e853ffb", /* cssModules */
-    null);
-    module.exports = Component.exports;
-}, /* 20 */
+}, /* 14 */
 /***/
 function(module, exports) {
     module.exports = {
