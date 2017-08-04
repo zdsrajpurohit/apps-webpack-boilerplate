@@ -6,12 +6,17 @@
 </template>
 
 <script>
+import HelloAgain from './HelloAgain'
+
 export default {
   name: 'hello',
   data () {
     return {
       userName: ''
     }
+  },
+  components: {
+    HelloAgain
   },
   computed: {
     msg: function () {
