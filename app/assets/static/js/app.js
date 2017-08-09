@@ -101,7 +101,7 @@ function(module, __webpack_exports__, __webpack_require__) {
     __webpack_exports__["default"] = {
         data: function data() {
             return {
-                msg: "hello agains"
+                msg: "hello again"
             };
         }
     };
@@ -125,7 +125,7 @@ function(module, exports, __webpack_require__) {
     exports = module.exports = __webpack_require__(0)(undefined);
     // imports
     // module
-    exports.push([ module.i, "p[data-v-7e853ffb]{color:#e5e5e5}", "" ]);
+    exports.push([ module.i, "p[data-v-7e853ffb]{color:#000}", "" ]);
 }, /* 12 */
 /***/
 function(module, exports, __webpack_require__) {

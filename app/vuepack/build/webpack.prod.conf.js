@@ -1,4 +1,3 @@
-var utils = require('./utils')
 var config = require('../config')
 var baseWebpackConfig = require('./webpack.base.conf')
 
@@ -17,8 +16,9 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].js'),
-    chunkFilename: utils.assetsPath('js/[id].js')
+    filename: path.posix.join(config.build.assetsSubDirectory, 'js/[name].js'),
+    chunkFilename: path.posix.join(config.build.assetsSubDirectory, 'js/[id].js'),
+    publicPath: config.build.assetsPublicPath
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -31,10 +31,6 @@ var webpackConfig = merge(baseWebpackConfig, {
       mangle: false,
       comments: true,
       beautify: true
-    }),
-    // extract css into its own file
-    new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].css')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.

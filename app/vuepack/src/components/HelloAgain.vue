@@ -9,7 +9,7 @@
 export default {
   data () {
     return {
-      msg: 'hello agains'
+      msg: 'hello again'
     }
   }
 }
@@ -18,6 +18,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 p {
-  color: #e5e5e5;
+  color: #000;
 }
 </style>
