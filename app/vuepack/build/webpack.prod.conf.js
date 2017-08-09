@@ -1,3 +1,7 @@
+require('./check-versions')()
+
+process.env.NODE_ENV = 'production'
+
 var path = require('path')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
@@ -5,6 +9,10 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+// Spinner modules
+var ora = require('ora')
+var rm = require('rimraf')
+var chalk = require('chalk')
 
 var build = {
   env: '"production"',
@@ -25,8 +33,6 @@ var build = {
   // Set to `true` or `false` to always turn it on or off
   bundleAnalyzerReport: process.env.npm_config_report
 }
-
-var env = build.env
 
 var webpackConfig = {
   watch: true,
@@ -55,10 +61,6 @@ var webpackConfig = {
     publicPath: build.assetsPublicPath
   },
   plugins: [
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
-    new webpack.DefinePlugin({
-      'process.env': env
-    }),
     // https://github.com/webpack-contrib/uglifyjs-webpack-plugin
     new webpack.optimize.UglifyJsPlugin({
       compress: false,
@@ -146,4 +148,24 @@ if (build.bundleAnalyzerReport) {
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-module.exports = webpackConfig
+// The part where spinner starts and build the webpack
+var spinner = ora('building for production...')
+
+spinner.start()
+
+rm(path.join(build.assetsRoot, build.assetsSubDirectory), err => {
+  if (err) throw err
+  webpack(webpackConfig, function (err, stats) {
+    spinner.stop()
+    if (err) throw err
+    process.stdout.write(stats.toString({
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false
+    }) + '\n\n')
+
+    console.log(chalk.cyan('  Build complete.\n'))
+  })
+})
