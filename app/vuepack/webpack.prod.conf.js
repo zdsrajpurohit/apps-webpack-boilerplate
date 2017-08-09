@@ -1,5 +1,3 @@
-require('./check-versions')()
-
 var path = require('path')
 var webpack = require('webpack')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -8,23 +6,23 @@ var ora = require('ora')
 var rm = require('rimraf')
 
 var build = {
-  env: '"production"',
-  index: path.resolve(__dirname, '../../assets/index.html'),
-  assetsRoot: path.resolve(__dirname, '../../assets'),
+  index: path.resolve(__dirname, '../assets/index.html'),
+  assetsRoot: path.resolve(__dirname, '../assets'),
   assetsSubDirectory: 'static',
   assetsPublicPath: '',
-  productionSourceMap: true,
+  nodeModulesDirectory: path.join(__dirname, '../../node_modules'),
+  staticAssets: path.resolve(__dirname, 'static')
 }
 
 var webpackConfig = {
   watch: true,
   entry: {
-    app: path.join(__dirname, '../src/main.js')
+    app: path.join(__dirname, 'src/main.js')
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': path.join(__dirname, '..', 'src')
+      '@': path.join(__dirname, 'src')
     }
   },
   module: {
@@ -75,7 +73,7 @@ var webpackConfig = {
           module.resource &&
           /\.js$/.test(module.resource) &&
           module.resource.indexOf(
-            path.join(__dirname, '../../../node_modules')
+            build.nodeModulesDirectory
           ) !== -1
         )
       }
@@ -83,7 +81,7 @@ var webpackConfig = {
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static'),
+        from: build.staticAssets,
         to: build.assetsSubDirectory,
         ignore: ['.*']
       }

@@ -9,7 +9,7 @@
 export default {
   data: function () {
     return {
-      msg: 'hello again'
+      msg: 'hello agains'
     }
   }
 }
