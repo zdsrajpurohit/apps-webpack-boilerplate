@@ -25,9 +25,9 @@ export default {
   },
   methods: {
     getUser: function () {
-      client.get('currentUser').then(
-        data => { this.userName = data['currentUser']['name'] }
-      )
+      client.get('currentUser').then(function (data) {
+        this.userName = data['currentUser']['name']
+      }.bind(this))
     }
   },
   mounted: function () {

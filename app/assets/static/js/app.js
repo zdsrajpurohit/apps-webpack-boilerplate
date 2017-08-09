@@ -27,9 +27,10 @@ function(module, __webpack_exports__, __webpack_require__) {
     /* harmony import */
     var __WEBPACK_IMPORTED_MODULE_1__App___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__App__);
     __WEBPACK_IMPORTED_MODULE_0_vue__["a"].config.productionTip = false;
+    /* eslint-disable no-new */
     new __WEBPACK_IMPORTED_MODULE_0_vue__["a"]({
         el: "#app",
-        render: function render(h) {
+        render: function(h) {
             return h(__WEBPACK_IMPORTED_MODULE_1__App___default.a);
         }
     });
@@ -80,10 +81,9 @@ function(module, __webpack_exports__, __webpack_require__) {
         },
         methods: {
             getUser: function getUser() {
-                var _this = this;
                 client.get("currentUser").then(function(data) {
-                    _this.userName = data["currentUser"]["name"];
-                });
+                    this.userName = data["currentUser"]["name"];
+                }.bind(this));
             }
         },
         mounted: function mounted() {
