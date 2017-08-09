@@ -101,7 +101,7 @@ function(module, __webpack_exports__, __webpack_require__) {
     __webpack_exports__["default"] = {
         data: function data() {
             return {
-                msg: "hello again"
+                msg: "hello agains"
             };
         }
     };
