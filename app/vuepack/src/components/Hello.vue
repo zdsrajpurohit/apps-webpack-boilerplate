@@ -10,7 +10,7 @@ import HelloAgain from './HelloAgain'
 
 export default {
   name: 'hello',
-  data () {
+  data: function () {
     return {
       userName: ''
     }

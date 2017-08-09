@@ -45,6 +45,12 @@ function(module, __webpack_exports__, __webpack_require__) {
     var __WEBPACK_IMPORTED_MODULE_0__components_Hello__ = __webpack_require__(12);
     /* harmony import */
     var __WEBPACK_IMPORTED_MODULE_0__components_Hello___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Hello__);
+    //
+    //
+    //
+    //
+    //
+    //
     /* harmony default export */
     __webpack_exports__["default"] = {
         name: "app",
@@ -63,10 +69,17 @@ function(module, __webpack_exports__, __webpack_require__) {
     var __WEBPACK_IMPORTED_MODULE_0__HelloAgain__ = __webpack_require__(13);
     /* harmony import */
     var __WEBPACK_IMPORTED_MODULE_0__HelloAgain___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__HelloAgain__);
+    //
+    //
+    //
+    //
+    //
+    //
+    //
     /* harmony default export */
     __webpack_exports__["default"] = {
         name: "hello",
-        data: function data() {
+        data: function() {
             return {
                 userName: ""
             };
@@ -75,18 +88,18 @@ function(module, __webpack_exports__, __webpack_require__) {
             HelloAgain: __WEBPACK_IMPORTED_MODULE_0__HelloAgain___default.a
         },
         computed: {
-            msg: function msg() {
+            msg: function() {
                 return "Hello " + this.userName + ", welcome to Zendesk Vue App.";
             }
         },
         methods: {
-            getUser: function getUser() {
+            getUser: function() {
                 client.get("currentUser").then(function(data) {
                     this.userName = data["currentUser"]["name"];
                 }.bind(this));
             }
         },
-        mounted: function mounted() {
+        mounted: function() {
             this.getUser();
         }
     };
@@ -97,11 +110,18 @@ function(module, __webpack_exports__, __webpack_require__) {
     Object.defineProperty(__webpack_exports__, "__esModule", {
         value: true
     });
+    //
+    //
+    //
+    //
+    //
+    //
+    //
     /* harmony default export */
     __webpack_exports__["default"] = {
-        data: function data() {
+        data: function() {
             return {
-                msg: "hello again"
+                msg: "hello agains"
             };
         }
     };

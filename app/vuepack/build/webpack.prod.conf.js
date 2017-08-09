@@ -1,5 +1,4 @@
-var config = require('../config')
-var baseWebpackConfig = require('./webpack.base.conf')
+// var config = require('../config')
 
 var path = require('path')
 var webpack = require('webpack')
@@ -9,16 +8,53 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
-var env = config.build.env
+var build = {
+  env: '"production"',
+  index: path.resolve(__dirname, '../../assets/index.html'),
+  assetsRoot: path.resolve(__dirname, '../../assets'),
+  assetsSubDirectory: 'static',
+  assetsPublicPath: '',
+  productionSourceMap: true,
+  // Gzip off by default as many popular static hosts such as
+  // Surge or Netlify already gzip all static assets for you.
+  // Before setting to `true`, make sure to:
+  // npm install --save-dev compression-webpack-plugin
+  productionGzip: false,
+  productionGzipExtensions: ['js', 'css'],
+  // Run the build command with an extra argument to
+  // View the bundle analyzer report after build finishes:
+  // `npm run build --report`
+  // Set to `true` or `false` to always turn it on or off
+  bundleAnalyzerReport: process.env.npm_config_report
+}
 
-var webpackConfig = merge(baseWebpackConfig, {
+var env = build.env
+
+var webpackConfig = {
   watch: true,
-  devtool: config.build.productionSourceMap ? '#source-map' : false,
+  entry: {
+    app: path.join(__dirname, '../src/main.js')
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      '@': path.join(__dirname, '..', 'src')
+    }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ]
+  },
+  devtool: build.productionSourceMap ? '#source-map' : false,
   output: {
-    path: config.build.assetsRoot,
-    filename: path.posix.join(config.build.assetsSubDirectory, 'js/[name].js'),
-    chunkFilename: path.posix.join(config.build.assetsSubDirectory, 'js/[id].js'),
-    publicPath: config.build.assetsPublicPath
+    path: build.assetsRoot,
+    filename: path.posix.join(build.assetsSubDirectory, 'js/[name].js'),
+    chunkFilename: path.posix.join(build.assetsSubDirectory, 'js/[id].js'),
+    publicPath: build.assetsPublicPath
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -45,7 +81,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: process.env.NODE_ENV === 'testing'
         ? 'app/vuepack/index.html'
-        : config.build.index,
+        : build.index,
       template: 'app/vuepack/index.html',
       inject: true,
       minify: {
@@ -82,14 +118,14 @@ var webpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
-        to: config.build.assetsSubDirectory,
+        to: build.assetsSubDirectory,
         ignore: ['.*']
       }
     ])
   ]
-})
+}
 
-if (config.build.productionGzip) {
+if (build.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
 
   webpackConfig.plugins.push(
@@ -98,7 +134,7 @@ if (config.build.productionGzip) {
       algorithm: 'gzip',
       test: new RegExp(
         '\\.(' +
-        config.build.productionGzipExtensions.join('|') +
+        build.productionGzipExtensions.join('|') +
         ')$'
       ),
       threshold: 10240,
@@ -107,7 +143,7 @@ if (config.build.productionGzip) {
   )
 }
 
-if (config.build.bundleAnalyzerReport) {
+if (build.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
