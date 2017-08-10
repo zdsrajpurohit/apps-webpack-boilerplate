@@ -2,6 +2,8 @@ var path = require('path')
 var webpack = require('webpack')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ora = require('ora')
 var rm = require('rimraf')
 
@@ -29,7 +31,15 @@ var webpackConfig = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+            })
+          }
+        }
       }
     ]
   },
@@ -85,7 +95,9 @@ var webpackConfig = {
         to: build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new ExtractTextPlugin(path.posix.join(build.assetsSubDirectory, 'css/styles.css')),
+    new CleanWebpackPlugin([build.assetsRoot])
   ]
 }
 

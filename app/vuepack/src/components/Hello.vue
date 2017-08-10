@@ -1,22 +1,16 @@
 <template>
   <div class="hello">
     <p>{{ msg }}</p>
-    <hello-again></hello-again>
   </div>
 </template>
 
 <script>
-import HelloAgain from './HelloAgain'
-
 export default {
   name: 'hello',
   data: function () {
     return {
       userName: ''
     }
-  },
-  components: {
-    HelloAgain
   },
   computed: {
     msg: function () {
