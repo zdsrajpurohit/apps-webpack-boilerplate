@@ -5,13 +5,7 @@
   "author": "shakti@zendesk.com",
   "private": true,
   "scripts": {
-    "dev": "node app/vuepack/build/dev-server.js",
-    "start": "node app/vuepack/build/dev-server.js",
-    "build": "node app/vuepack/build/build.js",
-    "unit": "node_modules/.bin/cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "e2e": "node app/vuepack/test/e2e/runner.js",
-    "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src app/vuepack/test/unit/specs app/vuepack/test/e2e/specs",
+    "build": "node app/vuepack/webpack.prod.conf.js",
     "zat": "cd app && zat server",
     "server": "npm run zat & npm run build"
   },
